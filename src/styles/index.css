@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.accuracy-embers-glow {
+  box-shadow: inset 0 0 var(--accuracy-level, 0px) calc(var(--accuracy-level, 0px) / 4) rgba(16, 185, 129, calc(var(--accuracy-level, 0) / 1000));
+}
+
+.speed-spark {
+  box-shadow: 0 0 10px var(--primary);
+  top: var(--spark-top, 0);
+  left: var(--spark-left, 0);
+  animation-delay: var(--spark-delay, 0s);
+}
+
+.performance-line {
+  top: var(--line-top, 0);
+}
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 215 25% 27%;
+    /* Stone Slate */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 10% 92%;
+    --secondary-foreground: 215 20% 30%;
+
+    --muted: 210 10% 94%;
+    --muted-foreground: 215 10% 35%;
+
+    --accent: 160 20% 45%;
+    /* Sage Accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 150 40% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 215 25% 27%;
+
+    --radius: 1rem;
+    /* Softer corners */
+
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --shadow-glow: 0 0 30px hsla(215, 25%, 27%, 0.05);
+    --shadow-card: 0 10px 40px -10px hsla(220, 20%, 30%, 0.08);
+  }
+
+  .dark {
+    --background: 215 15% 10%;
+    /* Midnight Graphite */
+    --foreground: 210 10% 90%;
+
+    --card: 215 15% 12%;
+    --card-foreground: 210 10% 90%;
+
+    --popover: 215 15% 12%;
+    --popover-foreground: 210 10% 90%;
+
+    --primary: 160 30% 60%;
+    /* Muted Sage highlight */
+    --primary-foreground: 215 15% 8%;
+
+    --secondary: 215 12% 18%;
+    --secondary-foreground: 210 10% 75%;
+
+    --muted: 215 12% 15%;
+    --muted-foreground: 215 10% 60%;
+
+    --accent: 160 30% 60%;
+    --accent-foreground: 215 15% 8%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 150 40% 45%;
+    --success-foreground: 150 40% 95%;
+
+    --border: 215 15% 18%;
+    --input: 215 15% 18%;
+    --ring: 160 30% 60%;
+
+    --shadow-glow: 0 0 40px hsla(160, 30%, 60%, 0.1);
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
+  }
+
+  /* CYBERPUNK THEME */
+  .cyberpunk {
+    --background: 260 50% 5%;
+    --foreground: 180 100% 50%;
+    --card: 260 50% 8%;
+    --card-foreground: 180 100% 70%;
+    --primary: 320 100% 60%;
+    /* Neon Pink */
+    --primary-foreground: 260 50% 5%;
+    --secondary: 180 100% 30%;
+    --secondary-foreground: 180 100% 90%;
+    --muted: 260 40% 15%;
+    --muted-foreground: 180 40% 50%;
+    --accent: 180 100% 50%;
+    /* Neon Cyan */
+    --accent-foreground: 260 50% 5%;
+    --border: 260 40% 20%;
+    --ring: 320 100% 60%;
+    --shadow-glow: 0 0 40px hsla(320, 100%, 60%, 0.3);
+  }
+
+  /* EMERALD THEME */
+  .emerald {
+    --background: 160 30% 5%;
+    --foreground: 160 20% 90%;
+    --card: 160 30% 8%;
+    --card-foreground: 160 20% 90%;
+    --primary: 160 80% 50%;
+    --primary-foreground: 160 30% 5%;
+    --secondary: 160 20% 15%;
+    --secondary-foreground: 160 20% 80%;
+    --muted: 160 20% 12%;
+    --muted-foreground: 160 10% 50%;
+    --accent: 160 80% 50%;
+    --border: 160 20% 18%;
+    --ring: 160 80% 50%;
+    --shadow-glow: 0 0 40px hsla(160, 80%, 50%, 0.2);
+  }
+
+  /* OCEAN THEME */
+  .ocean {
+    --background: 210 40% 5%;
+    --foreground: 210 10% 95%;
+    --card: 210 40% 8%;
+    --card-foreground: 210 10% 95%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 210 40% 5%;
+    --secondary: 210 20% 15%;
+    --secondary-foreground: 210 10% 85%;
+    --muted: 210 20% 12%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 200 100% 50%;
+    --border: 210 20% 18%;
+    --ring: 200 100% 50%;
+    --shadow-glow: 0 0 40px hsla(200, 100%, 50%, 0.2);
+  }
+
+  /* ROSE GOLD THEME */
+  .rose {
+    --background: 340 20% 5%;
+    --foreground: 340 10% 95%;
+    --card: 340 20% 8%;
+    --card-foreground: 340 10% 95%;
+    --primary: 340 60% 70%;
+    --primary-foreground: 340 20% 5%;
+    --secondary: 340 10% 15%;
+    --secondary-foreground: 340 10% 85%;
+    --muted: 340 10% 12%;
+    --muted-foreground: 340 5% 55%;
+    --accent: 340 60% 70%;
+    --border: 340 10% 18%;
+    --ring: 340 60% 70%;
+    --shadow-glow: 0 0 40px hsla(340, 60%, 70%, 0.2);
+  }
+
+  /* FOREST THEME (Natural) */
+  .forest {
+    --background: 145 15% 8%;
+    /* Deep Evergreen */
+    --foreground: 145 20% 92%;
+    --card: 145 15% 11%;
+    --card-foreground: 145 20% 92%;
+    --primary: 155 40% 50%;
+    /* Misty Sage */
+    --primary-foreground: 145 15% 6%;
+    --secondary: 145 10% 16%;
+    --secondary-foreground: 145 15% 80%;
+    --muted: 145 10% 14%;
+    --muted-foreground: 145 5% 55%;
+    --accent: 32 30% 45%;
+    /* Bark Brown */
+    --border: 145 10% 20%;
+    --ring: 155 40% 50%;
+    --shadow-glow: 0 0 40px hsla(155, 40%, 50%, 0.1);
+  }
+
+  /* MIDNIGHT THEME (Futuristic) */
+  .midnight {
+    --background: 240 30% 2%;
+    --foreground: 240 10% 98%;
+    --card: 240 30% 5%;
+    --card-foreground: 240 10% 98%;
+    --primary: 270 100% 65%;
+    /* Electric Purple */
+    --primary-foreground: 240 30% 2%;
+    --secondary: 240 20% 10%;
+    --secondary-foreground: 240 10% 80%;
+    --muted: 240 20% 8%;
+    --muted-foreground: 240 10% 50%;
+    --accent: 300 100% 50%;
+    /* Neon Pink/Magenta */
+    --border: 240 20% 12%;
+    --ring: 270 100% 65%;
+    --shadow-glow: 0 0 40px hsla(270, 100%, 65%, 0.25);
+  }
+
+  /* NOVA THEME (Futuristic) */
+  .nova {
+    --background: 280 40% 3%;
+    --foreground: 280 10% 95%;
+    --card: 280 40% 6%;
+    --card-foreground: 280 10% 95%;
+    --primary: 25 100% 60%;
+    /* Solar Orange */
+    --primary-foreground: 280 40% 3%;
+    --secondary: 280 20% 12%;
+    --secondary-foreground: 280 10% 85%;
+    --muted: 280 20% 10%;
+    --muted-foreground: 280 10% 55%;
+    --accent: 320 100% 60%;
+    /* Nebula Pink */
+    --border: 280 20% 15%;
+    --ring: 25 100% 60%;
+    --shadow-glow: 0 0 40px hsla(25, 100%, 60%, 0.25);
+  }
+
+  /* EARTH THEME (Natural) */
+  .earth {
+    --background: 35 25% 94%;
+    /* Soft Clay white */
+    --foreground: 25 35% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 35% 18%;
+    --primary: 22 55% 48%;
+    /* Terracotta Earth */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 20% 88%;
+    --secondary-foreground: 25 30% 35%;
+    --muted: 35 15% 90%;
+    --muted-foreground: 35 15% 40%;
+    --accent: 158 25% 42%;
+    /* Soft Sage brush */
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 22 55% 48%;
+    --shadow-glow: 0 0 40px hsla(22, 55%, 48%, 0.12);
+  }
+
+  /* FACEBOOK THEME */
+  .facebook {
+    --background: 214 20% 96%;
+    --foreground: 214 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 214 10% 12%;
+    --primary: 214 89% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 15% 92%;
+    --secondary-foreground: 214 10% 15%;
+    --muted: 214 15% 90%;
+    --muted-foreground: 214 5% 41%;
+    --accent: 214 89% 52%;
+    --border: 214 15% 85%;
+    --input: 214 15% 85%;
+    --ring: 214 89% 52%;
+    --shadow-glow: 0 0 40px hsla(214, 89%, 52%, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+}
+
+@layer components {
+  .typing-text {
+    font-family: var(--font-mono);
+  }
+
+  .char-correct {
+    @apply text-foreground transition-all duration-100;
+  }
+
+  .char-incorrect {
+    @apply text-destructive bg-destructive/10 rounded-sm px-[1px] transition-all duration-100;
+  }
+
+  .char-current {
+    @apply text-primary border-b-2 border-primary animate-pulse transition-all duration-150;
+    text-shadow: 0 0 8px hsla(var(--primary), 0.5);
+  }
+
+  .char-pending {
+    @apply text-muted-foreground/80 transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px hsl(38 92% 50% / 0.5);
+  }
+
+  /* Sidebar CSS custom properties — defined here to avoid inline style= prop */
+  .sidebar-wrapper {
+    --sidebar-width: 16rem;
+    --sidebar-width-icon: 3rem;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+  }
+
+  @supports (scrollbar-width: none) {
+    .scrollbar-hide {
+      scrollbar-width: none;
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom Scrollbar for Typing OS */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(128, 128, 128, 0.05);
+    border-radius: 20px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsla(38, 92%, 50%, 0.2);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsla(38, 92%, 50%, 0.4);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  /* Firefox support */
+  @supports (scrollbar-width: thin) {
+    .custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: hsla(38, 92%, 50%, 0.4) transparent;
+    }
+  }
+
+  /* Safe area support for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Checkered Flag utility for Multiplayer Race */
+  .bg-checkered-flag {
+    background: repeating-linear-gradient(0deg,
+        #000 0px,
+        #000 4px,
+        #fff 4px,
+        #fff 8px);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "TypingOS",
+  "description": "Free online typing speed test and practice platform with competitive exams support, real-time WPM, accuracy tracking, and lessons.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

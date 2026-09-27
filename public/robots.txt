@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /SETUP_STEPS.md
+
+# Sitemap
+Sitemap: https://typingos.com/sitemap.xml
